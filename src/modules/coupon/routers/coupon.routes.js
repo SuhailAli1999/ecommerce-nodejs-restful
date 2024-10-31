@@ -21,7 +21,8 @@ const router = Router()
 router
 	.route('/')
 	.get(
-		// authenticate, authorize(ROLES.ADMIN),
+		// authenticate,
+		// authorize(ROLES.ADMIN),
 		getAllCoupons
 	)
 	.post(
@@ -34,20 +35,20 @@ router
 router
 	.route('/:couponId')
 	.get(
-		authenticate,
-		authorize(ROLES.ADMIN),
+		// authenticate,
+		// authorize(ROLES.ADMIN),
 		validate(getCouponSchema),
 		getCoupon
 	)
 	.put(
-		authenticate,
-		authorize(ROLES.ADMIN),
+		// authenticate,
+		// authorize(ROLES.ADMIN),
 		validate(updateCouponSchema),
 		updateCoupon
 	)
 	.delete(
-		authenticate,
-		authorize(ROLES.ADMIN),
+		// authenticate,
+		// authorize(ROLES.ADMIN),
 		validate(deleteCouponSchema),
 		deleteCoupon
 	)

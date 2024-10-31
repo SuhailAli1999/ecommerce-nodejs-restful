@@ -23,7 +23,7 @@ router
 
 router
 	.route('/:subcategorySlug')
-	.get(validate(getSubcategoriesSchema), getSubcategory)
+	.get(getSubcategory)
 	.put(validate(updateSubcategorySchema), updateSubcategory)
 	.delete(validate(deleteSubcategorySchema), deleteSubcategory)
 

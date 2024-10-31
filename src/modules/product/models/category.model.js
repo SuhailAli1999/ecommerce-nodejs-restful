@@ -46,7 +46,7 @@ categorySchema.pre(/find/, function (next) {
 categorySchema.pre(/delete/i, async function (next) {
 	const toBeDeletedCategory = await categoryModel.findOne(this._conditions)
 	if (!toBeDeletedCategory) return next()
-	await mongoose.model('image').findByIdAndDelete(toBeDeletedCategory.image)
+	await mongoose.model('image').findByIdAndDelete(toBeDeletedCategory.image._id)
 	next()
 })
 
@@ -54,7 +54,8 @@ categorySchema.pre(/update/i, async function (next) {
 	if (!this._update.image) return next()
 	const toBeUpdatedCategory = await categoryModel.findOne(this._conditions)
 	if (!toBeUpdatedCategory) return next()
-	await mongoose.model('image').findByIdAndDelete(toBeUpdatedCategory.image)
+		console.log(toBeUpdatedCategory)
+	await mongoose.model('image').findByIdAndDelete(toBeUpdatedCategory.image._id)
 	next()
 })
 

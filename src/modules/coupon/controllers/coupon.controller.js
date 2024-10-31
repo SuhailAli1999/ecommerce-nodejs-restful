@@ -39,8 +39,8 @@ export const updateCoupon = catchAsyncError(async (req, res) => {
 })
 
 export const deleteCoupon = catchAsyncError(async (req, res) => {
-	const couponId = req.params.id
-
+	const couponId = req.params.couponId
+	console.log(couponId)
 	const deletedCoupon = await couponModel.findByIdAndDelete(couponId)
 
 	if (deletedCoupon) {

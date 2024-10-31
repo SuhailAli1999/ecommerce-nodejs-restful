@@ -21,6 +21,7 @@ export const getProduct = catchAsyncError(async (req, res, next) => {
 })
 
 export const addProductWithImages = catchAsyncError(async (req, res, next) => {
+	console.log(req.body)
 	const product = await productModel.create(req.body)
 	if (req.files?.images)
 		await Promise.all(

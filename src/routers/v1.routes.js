@@ -7,6 +7,7 @@ import brandsRouter from '../modules/product/routers/brand.routes.js'
 import usersRouter from '../modules/user/routers/user.routes.js'
 import cartsRouter from '../modules/cart/routers/cart.routes.js'
 import authRouter from '../modules/auth/auth.routes.js'
+import orderRouter from '../modules/cart/routers/order.routes.js'
 
 const router = Router()
 
@@ -17,5 +18,6 @@ router.use('/brands', brandsRouter)
 router.use('/users', usersRouter)
 router.use('/cart', cartsRouter)
 router.use('/auth', authRouter)
+router.use('/order', orderRouter)
 
 export default router

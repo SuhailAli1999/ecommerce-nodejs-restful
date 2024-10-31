@@ -92,7 +92,7 @@ productSchema.pre(/delete/i, async function (next) {
 	if (!toBeDeletedProduct) return next()
 	await mongoose
 		.model('image')
-		.findByIdAndDelete(toBeDeletedProduct.cover_image)
+		.findByIdAndDelete(toBeDeletedProduct.cover_image._id)
 
 	await Promise.all(
 		toBeDeletedProduct.images.map(async (image) => {
@@ -106,10 +106,9 @@ productSchema.pre(/update/i, async function (next) {
 	if (!this._update.cover_image) return next()
 	const toBeUpdatedProduct = await productModel.findOne(this._conditions)
 	if (!toBeUpdatedProduct) return next()
-
 	await mongoose
 		.model('image')
-		.findByIdAndDelete(toBeUpdatedProduct.cover_image)
+		.findByIdAndDelete(toBeUpdatedProduct.cover_image._id)
 	next()
 })
 

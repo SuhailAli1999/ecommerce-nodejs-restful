@@ -3,7 +3,6 @@ import { v2 as cloudinary } from 'cloudinary'
 export const uploadImage = async (path) => {
 	const { public_id: imageName, secure_url: imageUrl } =
 		await cloudinary.uploader.upload(path)
-
 	return { imageName, imageUrl }
 }
 

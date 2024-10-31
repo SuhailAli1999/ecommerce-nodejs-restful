@@ -40,6 +40,6 @@ router
 	)
 	.delete(validate(deleteCategorySchema), deleteCategory)
 
-router.use('/:categorySlug/subcategories', subcategoryRouter)
+router.use('/:categorySlug/subcategories', subcategoryRouter) // Merge params
 
 export default router
